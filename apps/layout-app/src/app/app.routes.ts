@@ -16,10 +16,9 @@ export const appRoutes: Route[] = [
     ],
   },
 
-
       { path: '', redirectTo: 'home', pathMatch: 'full' },
 
-      { path: '**', loadComponent: () => import('@fe/ui/pages').then(m => m.PageNotFoundComponent) },
+      { path: '**', loadComponent: () => import('@fe/page-not-found').then(m => m.PageNotFoundComponent) },
 
 
 ];
