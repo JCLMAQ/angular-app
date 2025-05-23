@@ -1,28 +1,28 @@
 {
-  "name": "dashboard",
+  "name": "layout-app",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "app",
-  "sourceRoot": "apps/dashboard/src",
+  "sourceRoot": "apps/layout-app/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:application",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/dashboard",
-        "index": "apps/dashboard/src/index.html",
-        "browser": "apps/dashboard/src/main.ts",
+        "outputPath": "dist/apps/layout-app",
+        "index": "apps/layout-app/src/index.html",
+        "browser": "apps/layout-app/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "apps/dashboard/tsconfig.app.json",
+        "tsConfig": "apps/layout-app/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
           {
             "glob": "**/*",
-            "input": "apps/dashboard/public"
+            "input": "apps/layout-app/public"
           }
         ],
-        "styles": ["apps/dashboard/src/styles.scss"],
+        "styles": ["apps/layout-app/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
@@ -54,10 +54,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "buildTarget": "dashboard:build:production"
+          "buildTarget": "layout-app:build:production"
         },
         "development": {
-          "buildTarget": "dashboard:build:development"
+          "buildTarget": "layout-app:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -65,7 +65,7 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "dashboard:build"
+        "buildTarget": "layout-app:build"
       }
     },
     "lint": {
@@ -75,16 +75,16 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/dashboard/jest.config.ts"
+        "jestConfig": "apps/layout-app/jest.config.ts"
       }
     },
     "serve-static": {
       "continuous": true,
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "dashboard:build",
+        "buildTarget": "layout-app:build",
         "port": 4200,
-        "staticFilePath": "dist/apps/dashboard/browser",
+        "staticFilePath": "dist/apps/layout-app/browser",
         "spa": true
       }
     }
