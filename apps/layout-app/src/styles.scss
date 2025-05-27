@@ -1,11 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
-@use "@angular/material" as mat;
+@use "./app/themes/themes.scss";
 
-html {
-  @include mat.theme(
-    (
-      color: mat.$azure-palette,
-      typography: Roboto,
-    )
-  );
-}
+@use "./app/styles/material.scss";
+
+@use "./app/styles/custom.scss";
+
+@use "./app/styles/tailwind.scss";
+
+@use "./app/styles/colors.scss";

@@ -34,12 +34,6 @@ export class HeaderComponent {
   collapsed = this.responsiveService.isCollapsed;
   barOpen = this.responsiveService.isMenuBarOpen;
 
-  // darkMode = signal(false);
-
-  // setDarkModeClass = effect(() => {
-  //   document.documentElement.classList.toggle('dark', this.darkMode());
-  // });
-
 
   toggleMenu() {
     if(!this.barOpen()){

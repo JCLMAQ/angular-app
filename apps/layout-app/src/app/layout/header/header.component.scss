@@ -4,7 +4,7 @@
         position: relative;
         z-index: 5;
         justify-content: space-between;
-        // --mat-toolbar-container-background-color: var(--sys-surface-container-low);
+        --mat-toolbar-container-background-color: var(--sys-surface-container-low);
 
 
     @include mat.toolbar-overrides((
@@ -24,4 +24,11 @@
           item-label-text-color: var(--mat-sys-primary),
         )
       );
+
+    .color-preview {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+    }
+
     }
