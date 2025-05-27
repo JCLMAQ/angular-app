@@ -8,6 +8,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { MatToolbar } from '@angular/material/toolbar';
 import { Router } from '@angular/router';
 import { ResponsiveService } from '../../services/responsive.service';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-header',
@@ -24,10 +25,8 @@ import { ResponsiveService } from '../../services/responsive.service';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-//  themeService = inject(ThemeService);
-
+  themeService = inject(ThemeService);
   responsiveService = inject(ResponsiveService);
-
   router = inject(Router);
 
   readonly sidenav = viewChild.required(MatSidenav);
