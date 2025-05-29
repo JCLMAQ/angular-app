@@ -4,6 +4,7 @@ import { Component, computed, input, signal } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { RouterLinkActive, RouterModule } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 import { MenuItem } from '../menu-items';
 
 @Component({
@@ -13,7 +14,8 @@ import { MenuItem } from '../menu-items';
     RouterModule,
     RouterLinkActive,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    TranslatePipe
   ],
   templateUrl: './menu-item.component.html',
   styleUrl: './menu-item.component.scss',
@@ -31,7 +33,7 @@ import { MenuItem } from '../menu-items';
 })
 export class MenuItemComponent {
 
-item = input.required<MenuItem>();
+  item = input.required<MenuItem>();
   collapsed = input.required<boolean>();
   routeHistory = input('');
 

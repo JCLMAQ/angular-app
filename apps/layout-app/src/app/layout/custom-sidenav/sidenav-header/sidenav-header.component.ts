@@ -9,8 +9,7 @@ import { Component, computed, input } from '@angular/core';
 })
 export class SidenavHeaderComponent {
 
- collapsed = input(false);
-
+  collapsed = input(false);
 
   profilePicSize = computed(() => (this.collapsed() ? '32' : '100'));
 

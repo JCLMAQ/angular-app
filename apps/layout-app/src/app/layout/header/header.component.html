@@ -7,10 +7,19 @@
 
   <div class="flex-stretch"></div>
 
-  <h1 class="flex-1">{{"SITETITLE" }}</h1>
+  <h1 class="flex-1">{{"SITETITLE" | translate }}</h1>
+  <!-- <div class="flex-stretch"></div> -->
+  <div class="flex-right"></div>
 
 
-  <div class="flex-1"></div>
+<button mat-icon-button (click)="darkMode.set(!darkMode())">
+        @if (darkMode()) {
+        <mat-icon>light_mode</mat-icon>
+        } @else {
+        <mat-icon>dark_mode</mat-icon>
+        }
+      </button>
+
   <!--  Light-Dark Theme Menu -->
       <button mat-icon-button [mat-menu-trigger-for]="themeLightDarkMenu">
         <mat-icon>{{ themeService.selectedLightDarkTheme()?.icon }}</mat-icon>
@@ -48,6 +57,19 @@
         }
       </mat-menu>
 
-
+<!-- Menu language selectection -->
+      <button
+          mat-icon-button
+          [matMenuTriggerFor]="menulanguage"
+          matTooltip="Change Language" aria-label="Change Theme Menu">
+          <mat-icon>language</mat-icon>
+        </button>
+        <mat-menu #menulanguage="matMenu" >
+          @for (lang of this.translate.getLangs(); track lang) {
+            <button mat-menu-item [value]="lang" (click)="this.translate.use(lang)">
+              {{ lang.toUpperCase() }}
+            </button>
+          }
+        </mat-menu>
 
 </mat-toolbar>

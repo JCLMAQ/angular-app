@@ -22,8 +22,8 @@ import { HeaderComponent } from './header/header.component';
   styleUrl: './layout.component.scss',
 })
 export class LayoutComponent {
- responsiveService = inject(ResponsiveService);
-readonly sidenav = viewChild.required(MatSidenav);
+  responsiveService = inject(ResponsiveService);
+  readonly sidenav = viewChild.required(MatSidenav);
 
   backDrop() {
     if (this.responsiveService.isMobile()) {

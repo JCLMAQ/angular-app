@@ -13,7 +13,7 @@
         >{{ item().icon }}</mat-icon
       >
       @if(!collapsed()) {
-      <span matListItemTitle>{{ item().label }}</span>
+      <span matListItemTitle>{{ item().label | translate }}</span>
       } @if(item().subItems) {
       <span matListItemMeta>
         @if(nestedItemOpen()) {

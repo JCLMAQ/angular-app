@@ -25,7 +25,7 @@ import { SidenavHeaderComponent } from './sidenav-header/sidenav-header.componen
 })
 export class CustomSidenavComponent {
 
- responsiveService = inject(ResponsiveService);
+  responsiveService = inject(ResponsiveService);
 
   collapsed = computed(() => this.responsiveService.isCollapsed());
 
