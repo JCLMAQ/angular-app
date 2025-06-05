@@ -1,4 +1,4 @@
-import { CommonModule, TitleCasePipe } from '@angular/common';
+import { TitleCasePipe } from '@angular/common';
 import { Component, effect, inject, signal, viewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
@@ -13,7 +13,6 @@ import { ThemeService } from '../../services/theme.service';
 @Component({
   selector: 'app-header',
   imports: [
-    CommonModule,
     MatToolbar,
     MatIcon,
     MatButtonModule,

@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { } from '@angular/common';
 import { Component, inject, viewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
@@ -11,7 +11,6 @@ import { HeaderComponent } from './header/header.component';
 @Component({
   selector: 'app-layout',
   imports: [
-    CommonModule,
     MatSidenavModule,
     CustomSidenavComponent,
     HeaderComponent,

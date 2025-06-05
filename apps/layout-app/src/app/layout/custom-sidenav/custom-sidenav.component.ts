@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, computed, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
@@ -12,7 +12,6 @@ import { SidenavHeaderComponent } from './sidenav-header/sidenav-header.componen
 @Component({
   selector: 'app-custom-sidenav',
   imports: [
-    CommonModule,
     MatSidenavModule,
     MatListModule,
     RouterModule,

@@ -1,9 +1,9 @@
-import { CommonModule } from '@angular/common';
+import { } from '@angular/common';
 import { Component, computed, input } from '@angular/core';
 
 @Component({
   selector: 'app-sidenav-header',
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './sidenav-header.component.html',
   styleUrl: './sidenav-header.component.scss',
 })
