@@ -14,8 +14,10 @@
         >{{ item().icon }}</mat-icon
       >
       @if(!collapsed()) {
-      <span matListItemTitle>{{ item().label | translate }}</span>
-      } @if(item().subItems) {
+        <span matListItemTitle>{{ item().label | translate }}</span>
+      }
+
+      @if(item().subItems) {
       <span matListItemMeta>
         @if(nestedItemOpen()) {
         <mat-icon>expand_less</mat-icon>
@@ -25,14 +27,15 @@
       </span>
       }
     </a>
+
     @if (nestedItemOpen() ) {
-    <div @expandContractMenu>
-      @for(subItem of item().subItems; track subItem.route) {
-      <app-menu-item
-        [item]="subItem"
-        [routeHistory]="routeHistory() + '/' + item().route"
-        [collapsed]="collapsed()"
-      />
-      }
-    </div>
+      <div @expandContractMenu>
+        @for(subItem of item().subItems; track subItem.route) {
+        <app-menu-item
+          [item]="subItem"
+          [routeHistory]="routeHistory() + '/' + item().route"
+          [collapsed]="collapsed()"
+        />
+        }
+      </div>
     }
