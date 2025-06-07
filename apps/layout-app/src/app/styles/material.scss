@@ -12,6 +12,16 @@ body {
   --primary-color: var(--sys-primary);
 }
 
+mat-form-field {
+  display: block !important;
+
+  @include mat.theme(
+    (
+      density: -2,
+    )
+  );
+}
+
 $custom-theme: mat.define-theme(
   (
     color: (
