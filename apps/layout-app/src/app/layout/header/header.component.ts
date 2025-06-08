@@ -53,19 +53,7 @@ export class HeaderComponent {
     this.router.navigate([`/${route}`]);
   }
 
-  // Light / Dark mode handling
-  // darkModeStatus = this.themeService.darkModeState();
-  // darkModeState = signal(darkModeStatus);
-
-  // setDarkModeClass = effect(() => {
-  //   document.documentElement.classList.toggle('dark', this.darkModeState());
-  // });
-
   toggleDarkMode() {
     this.themeService.switchLightDarkTheme();
-    // this.setDarkModeClass();
-    //  setDarkModeClass = effect(() => {
-    // document.documentElement.classList.toggle('dark', this.darkModeState());
-  // });
   }
 }
