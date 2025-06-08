@@ -43,6 +43,17 @@ export class ThemeService {
     this.lightDarkTheme.set(themesApp);
   }
 
+  switchLightDarkTheme() {
+    const currentTheme = this.lightDarkTheme();
+    if (currentTheme === 'light') {
+      this.lightDarkTheme.set('dark');
+    } else if (currentTheme === 'dark') {
+      this.lightDarkTheme.set('system');
+    } else {
+      this.lightDarkTheme.set('light');
+    }
+  }
+
   constructor() {
     effect(() => {
       const lightDarkTheme = this.lightDarkTheme();
@@ -51,7 +62,7 @@ export class ThemeService {
     });
   }
 
-// Custom theme code
+// Custom Color theme code
     private readonly themesColor: ColorTheme[] = [
     {
       id: 'blue',

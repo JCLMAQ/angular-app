@@ -6,20 +6,16 @@
   </button>
 
 
-
   <h1 class="flex-1">{{"SITETITLE" | translate }}</h1>
   <!-- <div class="flex-stretch"></div> -->
   <div class="flex-right"></div>
 
-  <!-- <div class="flex-stretch"></div> -->
+<!-- Dark mode button -->
 
-<button mat-icon-button (click)="darkMode.set(!darkMode())">
-        @if (darkMode()) {
-        <mat-icon>light_mode</mat-icon>
-        } @else {
-        <mat-icon>dark_mode</mat-icon>
-        }
-      </button>
+  <!-- Light-Dark Theme Toggle Button -->
+  <button mat-icon-button (click)="themeService.switchLightDarkTheme()">
+      <mat-icon>{{ themeService.selectedLightDarkTheme()?.icon }}</mat-icon>
+  </button>
 
   <!--  Light-Dark Theme Menu -->
       <button mat-icon-button [mat-menu-trigger-for]="themeLightDarkMenu">

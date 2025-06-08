@@ -1,5 +1,5 @@
 import { TitleCasePipe } from '@angular/common';
-import { Component, effect, inject, signal, viewChild } from '@angular/core';
+import { Component, inject, viewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
@@ -53,10 +53,19 @@ export class HeaderComponent {
     this.router.navigate([`/${route}`]);
   }
 
-   darkMode = signal(false);
+  // Light / Dark mode handling
+  // darkModeStatus = this.themeService.darkModeState();
+  // darkModeState = signal(darkModeStatus);
 
-  setDarkModeClass = effect(() => {
-    document.documentElement.classList.toggle('dark', this.darkMode());
-  });
+  // setDarkModeClass = effect(() => {
+  //   document.documentElement.classList.toggle('dark', this.darkModeState());
+  // });
 
+  toggleDarkMode() {
+    this.themeService.switchLightDarkTheme();
+    // this.setDarkModeClass();
+    //  setDarkModeClass = effect(() => {
+    // document.documentElement.classList.toggle('dark', this.darkModeState());
+  // });
+  }
 }
