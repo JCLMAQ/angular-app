@@ -13,9 +13,10 @@
 <!-- Dark mode button -->
 
   <!-- Light-Dark Theme Toggle Button -->
-  <button mat-icon-button (click)="themeService.switchLightDarkTheme()">
+  <button mat-icon-button matTooltip="themeService.selectedLightDarkTheme()?.name"(click)="themeService.switchLightDarkTheme()">
       <mat-icon>{{ themeService.selectedLightDarkTheme()?.icon }}</mat-icon>
-  </button>
+
+    </button>
 
   <!--  Light-Dark Theme Menu -->
       <!-- <button mat-icon-button [mat-menu-trigger-for]="themeLightDarkMenu">
