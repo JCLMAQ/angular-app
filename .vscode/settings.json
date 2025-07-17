@@ -22,5 +22,6 @@
     "peacock.color": "#b52e31",
     "i18n-ally.localesPaths": [
         "apps/layout-app/public/i18n"
-    ]
+    ],
+    "i18n-ally.sourceLanguage": "fr"
 }
