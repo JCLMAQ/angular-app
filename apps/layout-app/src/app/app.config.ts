@@ -6,6 +6,8 @@ import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { provideTranslateService, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { appRoutes } from './app.routes';
+import { DICTIONARIES } from './data/dictionaries';
+import { DICTIONARIES_TOKEN } from './tokens/dictionaries.token';
 
 const httpLoaderFactory: (http: HttpClient) => TranslateHttpLoader = (http: HttpClient) =>
   new TranslateHttpLoader(http, './i18n/', '.json');
@@ -29,6 +31,8 @@ export const appConfig: ApplicationConfig = {
         deps: [HttpClient],
       },
     }),
+
+ { provide: DICTIONARIES_TOKEN, useValue: DICTIONARIES },
 
     provideNativeDateAdapter(),
     // provideZoneChangeDetection({ eventCoalescing: true }),

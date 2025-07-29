@@ -55,6 +55,11 @@
         }
       </mat-menu>
 
+ <app-flag [of]="appStore.selectedLanguage()"
+        matTooltip="Change Language"
+        (click)="appStore.changeLanguage()"
+        />
+
 <!-- Menu language selectection -->
       <button
           mat-icon-button

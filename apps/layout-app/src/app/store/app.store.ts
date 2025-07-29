@@ -1,3 +1,6 @@
+import { withDevtools } from '@angular-architects/ngrx-toolkit';
+import { inject } from '@angular/core';
+import { tapResponse } from '@ngrx/operators';
 import {
   patchState,
   signalStore,
@@ -6,26 +9,22 @@ import {
   withProps,
   withState,
 } from '@ngrx/signals';
-import { withDevtools } from '@angular-architects/ngrx-toolkit';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
+import { switchMap, tap } from 'rxjs';
+import { setBusy, setIdle } from '../custom-features/with-busy/with-busy.updaters';
+import { DictionariesService } from '../services/dictionaries.service';
+import { NotificationsService } from '../services/notifications.service';
 import { initialAppSlice } from './app.slice';
-import { inject } from '@angular/core';
-import { tapResponse } from '@ngrx/operators';
 import {
   changeLanguage,
   resetLanguages,
   setDictionary,
 } from './app.updaters';
-import { DictionariesService } from '../services/dictionaries.service';
-import { switchMap, tap } from 'rxjs';
-import { NotificationsService } from '../services/notifications.service';
-import { withBusy } from '../custom-features/with-busy/with-busy.feature';
-import { setBusy, setIdle } from '../custom-features/with-busy/with-busy.updaters';
 
 export const AppStore = signalStore(
   { providedIn: 'root' },
   withState(initialAppSlice),
-  withBusy(),
+  // withBusy(),
   withProps((_) => {
     const _dictionariesService = inject(DictionariesService);
     const _languages = _dictionariesService.languages;
@@ -42,10 +41,10 @@ export const AppStore = signalStore(
         switchMap(lang => store._dictionariesService
             .getDictionaryWithDelay(lang).pipe(
               tapResponse({
-                next: dict => patchState(store, setDictionary(dict)), 
+                next: dict => patchState(store, setDictionary(dict)),
                 error: err => store._notifications.error(`${err}`),
                 finalize: () => patchState(store, setIdle())
-              })      
+              })
             ))
       ));
 
@@ -60,6 +59,6 @@ export const AppStore = signalStore(
     onInit: () => {
       store._resetLanguages();
     },
-  })), 
+  })),
   withDevtools('app-store')
 );
