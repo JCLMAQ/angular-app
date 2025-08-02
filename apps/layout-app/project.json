@@ -24,7 +24,7 @@
         ],
         "styles": [
           "apps/layout-app/src/styles.scss",
-        "node_modules/material-icons/iconfont/material-icons.css",
+          "node_modules/material-icons/iconfont/material-icons.css",
           "node_modules/material-symbols/index.scss",
           "node_modules/roboto-fontface/css/roboto/roboto-fontface.css"
         ],

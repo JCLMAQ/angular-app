@@ -11,7 +11,8 @@ import {
 } from '@ngrx/signals';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { switchMap, tap } from 'rxjs';
-import { setBusy, setIdle } from '../custom-features/with-busy/with-busy.updaters';
+import { withBusy } from '../custom-store-features/with-busy/with-busy.feature';
+import { setBusy, setIdle } from '../custom-store-features/with-busy/with-busy.updaters';
 import { DictionariesService } from '../services/dictionaries.service';
 import { NotificationsService } from '../services/notifications.service';
 import { initialAppSlice } from './app.slice';
@@ -24,7 +25,7 @@ import {
 export const AppStore = signalStore(
   { providedIn: 'root' },
   withState(initialAppSlice),
-  // withBusy(),
+  withBusy(),
   withProps((_) => {
     const _dictionariesService = inject(DictionariesService);
     const _languages = _dictionariesService.languages;
