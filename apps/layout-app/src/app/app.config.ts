@@ -1,16 +1,14 @@
-import { HttpClient, provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
+import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
-import { provideTranslateService, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { provideTranslateService } from '@ngx-translate/core';
+import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 import { appRoutes } from './app.routes';
 import { DICTIONARIES } from './data/dictionaries';
 import { DICTIONARIES_TOKEN } from './tokens/dictionaries.token';
 
-const httpLoaderFactory: (http: HttpClient) => TranslateHttpLoader = (http: HttpClient) =>
-  new TranslateHttpLoader(http, './i18n/', '.json');
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -24,12 +22,22 @@ export const appConfig: ApplicationConfig = {
       ]),
     ),
 
+    // provideTranslateService({
+    //   loader: {
+    //     provide: TranslateLoader,
+    //     useFactory: httpLoaderFactory,
+    //     deps: [HttpClient],
+    //   },
+    // }),
+
     provideTranslateService({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: httpLoaderFactory,
-        deps: [HttpClient],
-      },
+      fallbackLang: 'en',
+      loader: provideTranslateHttpLoader({
+        prefix:"./public/i18n/",
+        suffix:".json",
+        enforceLoading: true,
+        useHttpBackend: true,
+      }),
     }),
 
  { provide: DICTIONARIES_TOKEN, useValue: DICTIONARIES },
