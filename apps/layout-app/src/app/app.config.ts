@@ -21,15 +21,6 @@ export const appConfig: ApplicationConfig = {
         // LoggingInterceptor,
       ]),
     ),
-
-    // provideTranslateService({
-    //   loader: {
-    //     provide: TranslateLoader,
-    //     useFactory: httpLoaderFactory,
-    //     deps: [HttpClient],
-    //   },
-    // }),
-
     provideTranslateService({
       fallbackLang: 'en',
       loader: provideTranslateHttpLoader({
@@ -40,7 +31,7 @@ export const appConfig: ApplicationConfig = {
       }),
     }),
 
- { provide: DICTIONARIES_TOKEN, useValue: DICTIONARIES },
+  { provide: DICTIONARIES_TOKEN, useValue: DICTIONARIES },
 
     provideNativeDateAdapter(),
     // provideZoneChangeDetection({ eventCoalescing: true }),

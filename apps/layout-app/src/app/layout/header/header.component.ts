@@ -1,4 +1,3 @@
-import { TitleCasePipe } from '@angular/common';
 import { Component, inject, viewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
@@ -20,7 +19,7 @@ import { AppStore } from '../../store/app.store';
     MatButtonModule,
     MatMenuModule,
     // MatDivider,
-    TitleCasePipe,
+    // TitleCasePipe,
     TranslatePipe,
     FlagComponent
   ],
@@ -38,7 +37,6 @@ export class HeaderComponent {
 
   collapsed = this.responsiveService.isCollapsed;
   barOpen = this.responsiveService.isMenuBarOpen;
-
   toggleMenu() {
     if(!this.barOpen()){
       this.barOpen.set(!this.barOpen());

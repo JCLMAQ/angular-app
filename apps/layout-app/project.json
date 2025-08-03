@@ -26,7 +26,8 @@
           "apps/layout-app/src/styles.scss",
           "node_modules/material-icons/iconfont/material-icons.css",
           "node_modules/material-symbols/index.scss",
-          "node_modules/roboto-fontface/css/roboto/roboto-fontface.css"
+          "node_modules/roboto-fontface/css/roboto/roboto-fontface.css",
+          "node_modules/flag-icons/css/flag-icons.min.css"
         ],
         "scripts": []
       },
@@ -49,7 +50,8 @@
         "development": {
           "optimization": false,
           "extractLicenses": false,
-          "sourceMap": true
+          "sourceMap": true,
+          "outputHashing": "media"
         }
       },
       "defaultConfiguration": "production"
