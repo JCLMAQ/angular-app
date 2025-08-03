@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
@@ -17,5 +17,6 @@ export class AppComponent {
     translateService.addLangs(['en','fr']);
 
     translateService.use(translateService.getBrowserLang() || 'en'); // use browser language by default
+    const currentLang = signal(translateService.getCurrentLang() )// get current language
   }
 }

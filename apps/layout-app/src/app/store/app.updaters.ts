@@ -1,6 +1,6 @@
 import { PartialStateUpdater } from "@ngrx/signals";
-import { AppSlice } from "./app.slice";
 import { Dictionary } from "../data/dictionaries";
+import { AppSlice } from "./app.slice";
 
 export function changeLanguage(languages: string[]): PartialStateUpdater<AppSlice> {
     return state => {
@@ -20,4 +20,13 @@ export function resetLanguages(languages: string[]): PartialStateUpdater<AppSlic
 
 export function setDictionary(dictionary: Dictionary): PartialStateUpdater<AppSlice> {
     return _ => ({ selectedDictionary: dictionary });
+}
+
+export function switchLanguage(language: string): PartialStateUpdater<AppSlice> {
+    return state => {
+        if (state.possibleLanguages.includes(language)) {
+            return { selectedLanguage: language };
+        }
+        throw new Error(`Language ${language} is not supported`);
+    }
 }

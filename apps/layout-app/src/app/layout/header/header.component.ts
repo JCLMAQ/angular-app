@@ -1,4 +1,4 @@
-import { Component, inject, viewChild } from '@angular/core';
+import { Component, inject, signal, viewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
@@ -37,6 +37,15 @@ export class HeaderComponent {
 
   collapsed = this.responsiveService.isCollapsed;
   barOpen = this.responsiveService.isMenuBarOpen;
+
+  currentLang = signal(this.translate.getCurrentLang() )// get current language
+
+  setLanguage(language: string) {
+    this.appStore.switchLanguage(language);
+    this.currentLang.set(language);
+    this.translate.use(language);
+    // this.appStore.setDictionary(this.appStore._dictionaries[language]);
+  }
   toggleMenu() {
     if(!this.barOpen()){
       this.barOpen.set(!this.barOpen());

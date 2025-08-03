@@ -55,26 +55,31 @@
         }
       </mat-menu>
 
-    <app-flag [of]="appStore.selectedLanguage()"
+    <!-- <app-flag [of]="appStore.selectedLanguage()"
             matTooltip="Change Language"
             (click)="appStore.changeLanguage()"
-            />
+            /> -->
 
 <!-- Menu language selectection -->
       <button
           mat-icon-button
           [matMenuTriggerFor]="menulanguage"
           matTooltip="Change Language" aria-label="Change Language Menu">
-          <mat-icon>language</mat-icon>
+          <!-- <mat-icon>language</mat-icon> -->
+              @if (currentLang() === 'en') {
+                <h3><span class="fi fi-gb"></span></h3>
+            } @else {
+              <h3><span class="fi fi-{{ currentLang() }}"></span></h3>
+            }
         </button>
         <mat-menu #menulanguage="matMenu" >
           @for (lang of this.translate.getLangs(); track lang) {
             @if (lang === 'en') {
-              <button mat-menu-item [value]="lang" (click)="this.translate.use(lang)">
+              <button mat-menu-item [value]="lang" (click)="setLanguage(lang)">
                 <h3><span class="fi fi-gb"></span> - {{ lang.toUpperCase() }}</h3>
               </button>
             } @else {
-            <button mat-menu-item [value]="lang" (click)="this.translate.use(lang)">
+            <button mat-menu-item [value]="lang" (click)="setLanguage(lang)">
               <h3><span class="fi fi-{{ lang }}"></span> - {{ lang.toUpperCase() }}</h3>
             </button>
             }

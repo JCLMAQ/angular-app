@@ -1,6 +1,5 @@
 import { withDevtools } from '@angular-architects/ngrx-toolkit';
 import { inject } from '@angular/core';
-import { tapResponse } from '@ngrx/operators';
 import {
   patchState,
   signalStore,
@@ -9,17 +8,16 @@ import {
   withProps,
   withState,
 } from '@ngrx/signals';
-import { rxMethod } from '@ngrx/signals/rxjs-interop';
-import { switchMap, tap } from 'rxjs';
 import { withBusy } from '../custom-store-features/with-busy/with-busy.feature';
-import { setBusy, setIdle } from '../custom-store-features/with-busy/with-busy.updaters';
+import { Dictionary } from '../data/dictionaries';
 import { DictionariesService } from '../services/dictionaries.service';
 import { NotificationsService } from '../services/notifications.service';
+import { DICTIONARIES_TOKEN } from '../tokens/dictionaries.token';
 import { initialAppSlice } from './app.slice';
 import {
   changeLanguage,
   resetLanguages,
-  setDictionary,
+  switchLanguage
 } from './app.updaters';
 
 export const AppStore = signalStore(
@@ -29,36 +27,33 @@ export const AppStore = signalStore(
   withProps((_) => {
     const _dictionariesService = inject(DictionariesService);
     const _languages = _dictionariesService.languages;
+    const _dictionaries = inject(DICTIONARIES_TOKEN);
 
     return {
       _dictionariesService,
+      _dictionaries,
       _languages,
       _notifications: inject(NotificationsService),
     };
   }),
   withMethods((store) => {
-    const _invalidateDictionary = rxMethod<string>(input$ => input$.pipe(
-        tap(_ => patchState(store, setBusy())),
-        switchMap(lang => store._dictionariesService
-            .getDictionaryWithDelay(lang).pipe(
-              tapResponse({
-                next: dict => patchState(store, setDictionary(dict)),
-                error: err => store._notifications.error(`${err}`),
-                finalize: () => patchState(store, setIdle())
-              })
-            ))
-      ));
-
-    _invalidateDictionary(store.selectedLanguage);
-
-    return {
-      changeLanguage: () => patchState(store, changeLanguage(store._languages)),
-      _resetLanguages: () => patchState(store, resetLanguages(store._languages))
-    };
+      const dictionaries = inject(DICTIONARIES_TOKEN);
+      const languages = Object.keys(dictionaries);
+        return {
+            changeLanguage: () => patchState(store, changeLanguage(languages)),
+            switchLanguage: (language: string) => patchState(store,  switchLanguage(language) ),
+            setDictionary: (dictionary: Dictionary) => patchState(store, { selectedDictionary: dictionary }),
+            _resetLanguages: () => patchState(store, resetLanguages(languages))
+        }
   }),
   withHooks((store) => ({
     onInit: () => {
-      store._resetLanguages();
+     const dictionaries = inject(DICTIONARIES_TOKEN);
+            const languages = Object.keys(dictionaries);
+            patchState(store, {
+                possibleLanguages: languages,
+                selectedLanguage: languages[0]
+            })
     },
   })),
   withDevtools('app-store')
