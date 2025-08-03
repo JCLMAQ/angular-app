@@ -9,6 +9,6 @@ import { Component, computed, input } from '@angular/core';
 export class FlagComponent {
   readonly of = input.required<string>();
 
-  readonly imageUrl = computed(() => `images/flags/${this.of()}.svg`);
+  readonly imageUrl = computed(() => `images/lang/${this.of()}.svg`);
 
 }
