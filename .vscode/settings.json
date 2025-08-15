@@ -23,5 +23,6 @@
     "i18n-ally.localesPaths": [
         "apps/layout-app/public/i18n"
     ],
-    "i18n-ally.sourceLanguage": "fr"
+    "i18n-ally.sourceLanguage": "fr",
+    "vs-browser.url": "http://localhost:4500"
 }
