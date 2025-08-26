@@ -1,7 +1,7 @@
 import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideNativeDateAdapter } from '@angular/material/core';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { provideTranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -12,8 +12,8 @@ import { DICTIONARIES_TOKEN } from './tokens/dictionaries.token';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideAnimationsAsync(),
     provideZoneChangeDetection({ eventCoalescing: true }),
+    provideAnimations(),
     provideHttpClient(
       withFetch(),
       withInterceptors([

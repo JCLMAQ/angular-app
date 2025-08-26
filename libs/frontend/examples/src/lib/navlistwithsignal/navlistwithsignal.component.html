@@ -1,0 +1,11 @@
+<h2>Inventory</h2>
+<button (click)="addItem()">Add Item</button>
+<button (click)="removeItem()">Remove Item</button>
+<pre>
+  {{ items() | json }}
+</pre>
+
+
+<h2>Selected: {{selectedItem()}}</h2>
+<button (click)="nextItem()">Next Item</button>
+<button (click)="prevItem()">Prev Item</button>
