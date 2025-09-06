@@ -6,7 +6,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { MatToolbar } from '@angular/material/toolbar';
 import { Router } from '@angular/router';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
-import { FlagComponent } from '../../components/flag/flag.component';
+// import { FlagComponent } from '../../components/flag/flag.component';
 import { ResponsiveService } from '../../services/responsive.service';
 import { ThemeService } from '../../services/theme.service';
 import { AppStore } from '../../store/app.store';
@@ -21,7 +21,7 @@ import { AppStore } from '../../store/app.store';
     // MatDivider,
     // TitleCasePipe,
     TranslatePipe,
-    FlagComponent
+    // FlagComponent
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',

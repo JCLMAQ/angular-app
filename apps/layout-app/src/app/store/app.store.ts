@@ -15,9 +15,9 @@ import { NotificationsService } from '../services/notifications.service';
 import { DICTIONARIES_TOKEN } from '../tokens/dictionaries.token';
 import { initialAppSlice } from './app.slice';
 import {
-  changeLanguage,
-  resetLanguages,
-  switchLanguage
+  changeLanguageDictionary,
+  resetLanguagesDictionaries,
+  switchLanguageDictionary
 } from './app.updaters';
 
 export const AppStore = signalStore(
@@ -40,10 +40,10 @@ export const AppStore = signalStore(
       const dictionaries = inject(DICTIONARIES_TOKEN);
       const languages = Object.keys(dictionaries);
         return {
-            changeLanguage: () => patchState(store, changeLanguage(languages)),
-            switchLanguage: (language: string) => patchState(store,  switchLanguage(language) ),
+            changeLanguage: () => patchState(store, changeLanguageDictionary(languages)),
+            switchLanguage: (language: string) => patchState(store,  switchLanguageDictionary(language) ),
             setDictionary: (dictionary: Dictionary) => patchState(store, { selectedDictionary: dictionary }),
-            _resetLanguages: () => patchState(store, resetLanguages(languages))
+            _resetLanguages: () => patchState(store, resetLanguagesDictionaries(languages))
         }
   }),
   withHooks((store) => ({
