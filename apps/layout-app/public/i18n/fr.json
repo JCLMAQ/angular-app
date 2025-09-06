@@ -21,7 +21,7 @@
     "Submit": "Soumettre",
     "portal": {
       "title": "Translation demo",
-      "text": "This is a simple demonstration app for ngx-translate"
+      "text": "Ceci est une application simple de translation avec ngx-translate"
     },
     "SideNavMenu": {
       "About": "A propos de",

@@ -1,6 +1,6 @@
 export type Dictionary = Record<string, string>;
 export type Dictionaries = Record<string, Dictionary>;
-export const QUESTION_CAPTION = "QuestionCaption";
+// export const QUESTION_CAPTION = "QuestionCaption";
 
 export const ENGLISH_DICTIONARY: Dictionary = {
     "AliceBlue": "Alice Blue",

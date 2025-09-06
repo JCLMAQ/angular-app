@@ -28,7 +28,7 @@ import { AppStore } from '../../store/app.store';
 })
 export class HeaderComponent {
   appStore = inject(AppStore);
-  translate = inject(TranslateService);
+  ngxtranslateService = inject(TranslateService);
   themeService = inject(ThemeService);
   responsiveService = inject(ResponsiveService);
   router = inject(Router);
@@ -38,12 +38,12 @@ export class HeaderComponent {
   collapsed = this.responsiveService.isCollapsed;
   barOpen = this.responsiveService.isMenuBarOpen;
 
-  currentLang = signal(this.translate.getCurrentLang() )// get current language
+  currentLang = signal(this.ngxtranslateService.getCurrentLang() )// get current language
 
   setLanguage(language: string) {
     this.appStore.switchLanguage(language);
     this.currentLang.set(language);
-    this.translate.use(language);
+    this.ngxtranslateService.use(language);
     // this.appStore.setDictionary(this.appStore._dictionaries[language]);
   }
   toggleMenu() {

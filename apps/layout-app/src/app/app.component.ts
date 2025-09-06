@@ -11,9 +11,9 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 export class AppComponent {
   title = 'layout-app';
 
-  translateService = inject(TranslateService);
+  ngxtranslateService = inject(TranslateService);
  constructor() {
-    const translateService = this.translateService;
+    const translateService = this.ngxtranslateService;
     translateService.addLangs(['en','fr']);
 
     translateService.use(translateService.getBrowserLang() || 'en'); // use browser language by default

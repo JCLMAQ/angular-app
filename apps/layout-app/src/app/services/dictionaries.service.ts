@@ -7,7 +7,7 @@ import { DICTIONARIES_TOKEN } from "../tokens/dictionaries.token";
 
 @Injectable({providedIn: 'root'})
 export class DictionariesService {
-    readonly translate = inject(TranslateService);
+    readonly ngxtranslateService = inject(TranslateService);
 
     readonly #dictionaries = inject(DICTIONARIES_TOKEN);
 
@@ -21,7 +21,7 @@ export class DictionariesService {
         if (!this.languages.includes(language)) {
             throw new Error(`Language ${language} not found in dictionaries`);
         }
-        this.translate.use(language)
+        this.ngxtranslateService.use(language)
         return this.dictionaryOf(language);
     }
 

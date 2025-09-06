@@ -5,15 +5,15 @@ export function getDictionaryHelper(language: string, dictionaries: Dictionaries
 }
 
 
-export function translate(key: string, dictionary: Dictionary | null): string {
+export function translateFromDictionary(key: string, dictionary: Dictionary | null): string {
     if (!dictionary) return key;
     return dictionary[key] ?? key;
 }
 
-export function translateToPair(key: string, dictionary: Dictionary | null): {key:string, name: string} {
-    return { key, name: translate(key, dictionary) };
+export function translateFromDictionaryToPair(key: string, dictionary: Dictionary | null): {key:string, name: string} {
+    return { key, name: translateFromDictionary(key, dictionary) };
 }
 
-export function translateToPairs(keys: string[], dictionary: Dictionary | null): {key:string, name: string}[] {
-    return keys.map(key => translateToPair(key, dictionary));
+export function translateFromDictionaryToPairs(keys: string[], dictionary: Dictionary | null): {key:string, name: string}[] {
+    return keys.map(key => translateFromDictionaryToPair(key, dictionary));
 }

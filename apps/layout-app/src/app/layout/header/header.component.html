@@ -73,7 +73,7 @@
             }
         </button>
         <mat-menu #menulanguage="matMenu" >
-          @for (lang of this.translate.getLangs(); track lang) {
+          @for (lang of this.ngxtranslateService.getLangs(); track lang) {
             @if (lang === 'en') {
               <button mat-menu-item [value]="lang" (click)="setLanguage(lang)">
                 <h3><span class="fi fi-gb"></span> - {{ lang.toUpperCase() }}</h3>
