@@ -1,8 +1,8 @@
 import { PartialStateUpdater } from "@ngrx/signals";
 import { Dictionary } from "../data/dictionaries";
-import { AppSlice } from "./app.slice";
+import { DictionarySlice } from "./dictionary.slice";
 
-export function changeLanguageDictionary(languages: string[]): PartialStateUpdater<AppSlice> {
+export function changeLanguageDictionary(languages: string[]): PartialStateUpdater<DictionarySlice> {
   // select the next language in the list one after another
     return state => {
         const index = languages.indexOf(state.selectedLanguage) ?? -1;
@@ -12,7 +12,7 @@ export function changeLanguageDictionary(languages: string[]): PartialStateUpdat
     }
 }
 
-export function resetLanguagesDictionaries(languages: string[]): PartialStateUpdater<AppSlice> {
+export function resetLanguagesDictionaries(languages: string[]): PartialStateUpdater<DictionarySlice> {
   // reset the languages store
     return _ => ({
         possibleLanguages: languages,
@@ -20,12 +20,12 @@ export function resetLanguagesDictionaries(languages: string[]): PartialStateUpd
     })
 }
 
-export function setDictionary(dictionary: Dictionary): PartialStateUpdater<AppSlice> {
+export function setDictionary(dictionary: Dictionary): PartialStateUpdater<DictionarySlice> {
   // Define the selected dictionary
     return _ => ({ selectedDictionary: dictionary });
 }
 
-export function switchLanguageDictionary(language: string): PartialStateUpdater<AppSlice> {
+export function switchLanguageDictionary(language: string): PartialStateUpdater<DictionarySlice> {
   // Change the dictionary to the selected language
     return state => {
         if (state.possibleLanguages.includes(language)) {

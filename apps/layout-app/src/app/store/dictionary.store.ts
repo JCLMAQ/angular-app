@@ -13,16 +13,16 @@ import { Dictionary } from '../data/dictionaries';
 import { DictionariesService } from '../services/dictionaries.service';
 import { NotificationsService } from '../services/notifications.service';
 import { DICTIONARIES_TOKEN } from '../tokens/dictionaries.token';
-import { initialAppSlice } from './app.slice';
+import { initialDictionarySlice } from './dictionary.slice';
 import {
   changeLanguageDictionary,
   resetLanguagesDictionaries,
   switchLanguageDictionary
-} from './app.updaters';
+} from './dictionary.updaters';
 
 export const AppStore = signalStore(
   { providedIn: 'root' },
-  withState(initialAppSlice),
+  withState(initialDictionarySlice),
   withBusy(),
   withProps((_) => {
     const _dictionariesService = inject(DictionariesService);
@@ -56,5 +56,5 @@ export const AppStore = signalStore(
             })
     },
   })),
-  withDevtools('app-store')
+  withDevtools('dictionary-store')
 );

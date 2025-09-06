@@ -9,7 +9,7 @@ import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 // import { FlagComponent } from '../../components/flag/flag.component';
 import { ResponsiveService } from '../../services/responsive.service';
 import { ThemeService } from '../../services/theme.service';
-import { AppStore } from '../../store/app.store';
+import { AppStore } from '../../store/dictionary.store';
 
 @Component({
   selector: 'app-header',

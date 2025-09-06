@@ -1,7 +1,7 @@
 import { inject, Injectable } from "@angular/core";
 import { TranslateService } from "@ngx-translate/core";
 import { Dictionary } from "../data/dictionaries";
-import { getDictionaryHelper } from "../store/app.helpers";
+import { getDictionaryHelper } from "../store/dictionary.helpers";
 import { DICTIONARIES_TOKEN } from "../tokens/dictionaries.token";
 
 
