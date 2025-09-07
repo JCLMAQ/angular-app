@@ -9,7 +9,7 @@ import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 // import { FlagComponent } from '../../components/flag/flag.component';
 import { ResponsiveService } from '../../services/responsive.service';
 import { ThemeService } from '../../services/theme.service';
-import { AppStore } from '../../store/dictionary.store';
+import { DictionaryStore } from '../../store/dictionary.store';
 
 @Component({
   selector: 'app-header',
@@ -27,7 +27,7 @@ import { AppStore } from '../../store/dictionary.store';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-  appStore = inject(AppStore);
+  dictionaryStore = inject(DictionaryStore);
   ngxtranslateService = inject(TranslateService);
   themeService = inject(ThemeService);
   responsiveService = inject(ResponsiveService);
@@ -41,10 +41,10 @@ export class HeaderComponent {
   currentLang = signal(this.ngxtranslateService.getCurrentLang() )// get current language
 
   setLanguage(language: string) {
-    this.appStore.switchLanguage(language);
+    this.dictionaryStore.switchLanguage(language);
     this.currentLang.set(language);
     this.ngxtranslateService.use(language);
-    // this.appStore.setDictionary(this.appStore._dictionaries[language]);
+    // this.dictionaryStore.setDictionary(this.dictionaryStore._dictionaries[language]);
   }
   toggleMenu() {
     if(!this.barOpen()){

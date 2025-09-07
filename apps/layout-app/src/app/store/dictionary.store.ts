@@ -20,7 +20,7 @@ import {
   switchLanguageDictionary
 } from './dictionary.updaters';
 
-export const AppStore = signalStore(
+export const DictionaryStore = signalStore(
   { providedIn: 'root' },
   withState(initialDictionarySlice),
   withBusy(),

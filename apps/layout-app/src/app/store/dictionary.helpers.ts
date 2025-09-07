@@ -1,6 +1,7 @@
 import { Dictionaries, Dictionary } from "../data/dictionaries";
 
 export function getDictionaryHelper(language: string, dictionaries: Dictionaries): Dictionary {
+  // Return the dictionary of the selected language
     return dictionaries[language] ?? Object.values(dictionaries)[0];
 }
 

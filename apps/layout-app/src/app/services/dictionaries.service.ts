@@ -14,10 +14,12 @@ export class DictionariesService {
     readonly languages = Object.keys(this.#dictionaries);
 
     private dictionaryOf(language: string) {
+      // Return the dictionary of the passed language
         return getDictionaryHelper(language, this.#dictionaries);
     }
 
     getDictionary(language: string): Dictionary {
+      // Return the dictionary of the passed language key (en, fr, ...) and fix the ngx translate to use it
         if (!this.languages.includes(language)) {
             throw new Error(`Language ${language} not found in dictionaries`);
         }
