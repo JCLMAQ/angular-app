@@ -1,7 +1,10 @@
 onlyBuiltDependencies:
-<<<<<<< Updated upstream
+  - '@parcel/watcher'
   - '@swc/core'
   - '@tailwindcss/oxide'
-=======
->>>>>>> Stashed changes
+  - esbuild
+  - lmdb
+  - msgpackr-extract
   - nx
+  - oxc-resolver
+  - unrs-resolver
