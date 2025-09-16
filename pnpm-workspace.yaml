@@ -1,5 +1,7 @@
 onlyBuiltDependencies:
+<<<<<<< Updated upstream
   - '@swc/core'
   - '@tailwindcss/oxide'
+=======
+>>>>>>> Stashed changes
   - nx
-  - oxc-resolver
