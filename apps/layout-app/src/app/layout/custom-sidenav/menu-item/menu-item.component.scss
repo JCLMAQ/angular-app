@@ -26,17 +26,12 @@
 
 .sub-menu {
   display: grid;
-  // opacity: 1;
-  // grid-template-rows: 1fr;
-  // transition: opacity grid-template-rows 500ms ease-in-out;
-  // @starting-style {
-  //   opacity: 0;
-  //   rid-template-rows: 0fr;
-  // }
 }
+
 .sub-menu > div {
   overflow: hidden;
 }
+
 
 .expand-anim {
   animation: expand-in 500ms ease-in-out;
@@ -44,11 +39,6 @@
 .contract-anim {
   animation: expand-in 500ms ease-in-out reverse;
 }
-// .contracted {
-//   opacity: 0;
-//   grid-template-rows: 0fr;
-// }
-
 @keyframes expand-in {
   from {
     opacity: 0;

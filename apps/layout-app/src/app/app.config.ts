@@ -11,9 +11,7 @@ import { DICTIONARIES_TOKEN } from './tokens/dictionaries.token';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    // provideZoneChangeDetection({ eventCoalescing: true }),
     provideZonelessChangeDetection(),
-    // provideAnimations(),
     provideHttpClient(
       withFetch(),
       withInterceptors([
