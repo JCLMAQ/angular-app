@@ -2,6 +2,7 @@ import { JsonPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, linkedSignal, signal } from '@angular/core';
 import { ITEMS } from './items';
 
+// From UDEMY Signals course by Kobi Hary
 @Component({
   selector: 'lib-navlistwithsignal',
   imports: [JsonPipe],

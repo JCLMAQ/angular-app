@@ -16,7 +16,11 @@
     "baseUrl": ".",
     "paths": {
       "@fe/navlistwithsignal": ["libs/frontend/examples/src/index.ts"],
-      "@fe/page-not-found": ["libs/frontend/pages/src/index.ts"]
+      "@fe/page-not-found": ["libs/frontend/pages/src/index.ts"],
+      "@fe/signalformprofil": ["libs/frontend/examples/src/index.ts"],
+      "@fe/signalformutilities/field-error": [
+        "libs/frontend/utilities/signalformutilities/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
