@@ -1,4 +1,4 @@
-import { animate, style, transition, trigger } from '@angular/animations';
+// import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, computed, input, signal } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
@@ -17,17 +17,17 @@ import { MenuItem } from '../menu-items';
   ],
   templateUrl: './menu-item.component.html',
   styleUrl: './menu-item.component.scss',
-  animations: [
-    trigger('expandContractMenu', [
-      transition(':enter', [
-        style({ opacity: 0, height: '0px' }),
-        animate('500ms ease-in-out', style({ opacity: 1, height: '*' })),
-      ]),
-      transition(':leave', [
-        animate('500ms ease-in-out', style({ opacity: 0, height: '0px' })),
-      ]),
-    ]),
-  ],
+  // animations: [
+  //   trigger('expandContractMenu', [
+  //     transition(':enter', [
+  //       style({ opacity: 0, height: '0px' }),
+  //       animate('500ms ease-in-out', style({ opacity: 1, height: '*' })),
+  //     ]),
+  //     transition(':leave', [
+  //       animate('500ms ease-in-out', style({ opacity: 0, height: '0px' })),
+  //     ]),
+  //   ]),
+  // ],
 })
 export class MenuItemComponent {
 

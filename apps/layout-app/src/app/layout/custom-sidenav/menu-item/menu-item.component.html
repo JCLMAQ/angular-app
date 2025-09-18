@@ -29,7 +29,8 @@
     </a>
 
     @if (nestedItemOpen() ) {
-      <div @expandContractMenu>
+      <div class="sub-menu" animate-enter="expand-anim" animate.leave="contract-anim">
+        <div>
         @for(subItem of item().subItems; track subItem.route) {
         <app-menu-item
           [item]="subItem"
@@ -37,5 +38,6 @@
           [collapsed]="collapsed()"
         />
         }
+        </div>
       </div>
     }
