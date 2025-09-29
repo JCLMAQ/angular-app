@@ -17,6 +17,8 @@ export class AppComponent {
     translateService.addLangs(['en','fr']);
 
     translateService.use(translateService.getBrowserLang() || 'en'); // use browser language by default
-    const currentLang = signal(translateService.getCurrentLang() )// get current language
+
   }
+
+  currentLang = signal(this.ngxtranslateService.getCurrentLang() )// get current language
 }
